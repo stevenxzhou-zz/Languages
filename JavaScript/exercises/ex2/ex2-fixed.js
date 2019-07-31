@@ -102,12 +102,14 @@ var NotesManager = (function(){
 		$(document).bind("click",handleDocumentClick);
 
 		// listen for clicks on note elements
+		// on is equivalent as bind
 		$notes.on("click",".note",handleNoteClick);
 	}
 
 
 	var
 		// private `notes` data
+		// This is important.
 		notes = [],
 
 		// DOM refs
@@ -129,13 +131,14 @@ var NotesManager = (function(){
 
 
 // assume this data came from the database
+// This way we can load different set of data.
 NotesManager.loadData([
 	"This is the first note I've taken!",
 	"Now is the time for all good men to come to the aid of their country.",
 	"The quick brown fox jumped over the moon."
 ]);
 
-
+// By paramerazing the ids, we can reuse NotesManager for other dom elements with different ids.
 $(document).ready(function(){
 	NotesManager.init({
 		notes: "#notes",
