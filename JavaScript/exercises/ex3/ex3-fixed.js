@@ -28,7 +28,7 @@ NotesManager.prototype.showHelp = function() {
 		evt.preventDefault();
 		evt.stopPropagation();
 		evt.stopImmediatePropagation();
-
+		// __handler__ will be gone if we bind a new context because it *was* binded to the #document#.
 		document.removeEventListener("click",__handler__,true);
 		self.hideHelp();
 	},true);
